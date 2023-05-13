@@ -1,22 +1,34 @@
 import '@nomiclabs/hardhat-ethers';
 import { ethers } from 'hardhat';
+import Safe, { EthersAdapter, SafeFactory, SafeAccountConfig } from '@safe-global/protocol-kit'
+import dotenv from 'dotenv'
+
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  
+  // Set up the provider and signer wallet: This account will create the Safe wallet
+  dotenv.config()
+  const INFURA_KEY = process.env.INFURA_KEY
+  const provider = new ethers.providers.JsonRpcProvider(`https://goerli.infura.io/v3/${INFURA_KEY}`); 
+  const private_key = process.env.PRIVATE_KEY
+  console.log(process.env.PRIVATE_KEY);
 
-  const lockedAmount = ethers.utils.parseEther('0.001');
+  const signerWallet = new ethers.Wallet(private_key, provider); 
 
-  const Lock = await ethers.getContractFactory('Lock');
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  // EthAdapter is the safe wrapper for ethers.js and web3.js to make things compatible
+  const ethAdapter = new EthersAdapter({ethers, signerOrProvider: signerWallet}); 
+  const safeFactory = await SafeFactory.create({ ethAdapter })
 
-  await lock.deployed();
+  // Add the addresses that will be owners of this safe
+  const owners = ['0x7BF1F248E5E8BdD476d89D9456546C3C03862E5b', '0x048266c4609489f570D567B927CA3F137C06cD8D']
+  const threshold = 1
+  const safeAccountConfig: SafeAccountConfig = {
+  owners,
+  threshold
+  }
 
-  console.log(
-    `Lock with ${ethers.utils.formatEther(
-      lockedAmount,
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`,
-  );
+  const safeSdk: Safe = await safeFactory.deploySafe({safeAccountConfig})
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
