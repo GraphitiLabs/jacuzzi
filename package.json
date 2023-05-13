@@ -1,10 +1,14 @@
 {
+  "scripts": {
+    "format": "prettier --write '**/*.{ts,tsx,js,json,md,jsx}'"
+  },
   "dependencies": {
     "@safe-global/protocol-kit": "^1.0.1",
     "ethers": "5.7.2"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "hardhat": "^2.14.0"
+    "hardhat": "^2.14.0",
+    "prettier": "^2.8.8"
   }
 }
