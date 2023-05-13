@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@safe-global/protocol-kit": "^1.0.1",
+    "ethers": "5.7.2"
+  },
+  "devDependencies": {
+    "hardhat": "^2.14.0"
+  }
+}
