@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AddressContext } from '../../components/AddressContext';
 
-function WelcomeBanner() {
+function WelcomeBanner({ className }) {
+  const { address } = useContext(AddressContext);
+
   return (
     <div className="relative bg-indigo-200 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
       {/* Background illustration */}
@@ -68,9 +71,15 @@ function WelcomeBanner() {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-1">
-          Good afternoon, Acme Inc. 👋
-        </h1>
+        {address ? (
+          <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-1">
+            Hello, {address.slice(0, 6)}...{address.slice(-4)} 👋
+          </h1>
+        ) : (
+          <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-1">
+            Login to get started 👍
+          </h1>
+        )}
         <p>Here is what’s happening with your projects today:</p>
       </div>
     </div>
