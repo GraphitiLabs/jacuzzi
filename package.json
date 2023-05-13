@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "format": "prettier --write '**/*.{ts,tsx,js,json,md,jsx}'"
+  },
   "dependencies": {
     "@safe-global/protocol-kit": "^1.0.1",
     "ethers": "5.7.2"
