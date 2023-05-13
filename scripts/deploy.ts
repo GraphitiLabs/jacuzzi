@@ -1,5 +1,6 @@
 import "@nomiclabs/hardhat-ethers";
 import { ethers } from "hardhat";
+import Safe, { EthersAdapter, SafeFactory } from '@safe-global/protocol-kit'
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
