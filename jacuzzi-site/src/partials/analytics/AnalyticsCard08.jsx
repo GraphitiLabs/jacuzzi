@@ -6,11 +6,11 @@ import { tailwindConfig } from '../../utils/Utils';
 
 function AnalyticsCard08() {
   const chartData = {
-    labels: ['Desktop', 'Mobile', 'Tablet'],
+    labels: ['WBTC', 'Ether', 'Matic'],
     datasets: [
       {
-        label: 'Sessions By Device',
-        data: [12, 50, 38],
+        label: 'Percent Allocation',
+        data: [30, 50, 20],
         backgroundColor: [
           tailwindConfig().theme.colors.indigo[500],
           tailwindConfig().theme.colors.sky[400],

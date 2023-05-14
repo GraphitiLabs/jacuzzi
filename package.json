@@ -3,6 +3,7 @@
     "format": "prettier --write '**/*.{ts,tsx,js,json,md,jsx}'"
   },
   "dependencies": {
+    "@1inch/fusion-sdk": "^0.1.7",
     "@safe-global/protocol-kit": "^1.0.1",
     "ethers": "5.7.2"
   },

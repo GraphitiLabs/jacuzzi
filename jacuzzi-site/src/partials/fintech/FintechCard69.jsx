@@ -4,7 +4,7 @@ import LineChart from '../../charts/LineChart08';
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
 
-function FintechCard13() {
+function FintechCard69() {
   const chartData = {
     labels: [
       '12-01-2020',
@@ -38,19 +38,19 @@ function FintechCard13() {
       // Line
       {
         data: [
-          245, 288, 232, 204, 204, 214, 214, 214, 214, 214, 234, 254, 234, 234,
-114, 114, 114, 188, 114, 102, 120, 174, 128, 182, 199, 213
+          800, 792, 798, 805, 799, 790, 785, 790, 800, 805, 810, 800, 795, 790,
+          785, 780, 775, 770, 765, 760, 755, 750, 730, 710, 607
         ],
         fill: true,
         backgroundColor: `rgba(${hexToRGB(
-          tailwindConfig().theme.colors.emerald[500],
+          tailwindConfig().theme.colors.red[500],
         )}, 0.08)`,
-        borderColor: tailwindConfig().theme.colors.emerald[500],
+        borderColor: tailwindConfig().theme.colors.red[500],
         borderWidth: 2,
         tension: 0,
         pointRadius: 0,
         pointHoverRadius: 3,
-        pointBackgroundColor: tailwindConfig().theme.colors.emerald[500],
+        pointBackgroundColor: tailwindConfig().theme.colors.red[500],
         clip: 20,
       },
     ],
@@ -63,9 +63,9 @@ function FintechCard13() {
           <h3 className="text-sm font-semibold text-slate-500 uppercase mb-1">
             <span className="text-slate-800">Performance</span>
           </h3>
-          <div className="text-2xl font-bold text-slate-800 mb-1">$213.46</div>
+          <div className="text-2xl font-bold text-slate-800 mb-1">$607.13</div>
           <div className="text-sm">
-            <span className="font-medium text-emerald-500">+$14.70 (4%)</span> -
+            <span className="font-medium text-red-500">-$103.70 (23%)</span> -
             Today
           </div>
         </header>
@@ -79,4 +79,4 @@ function FintechCard13() {
   );
 }
 
-export default FintechCard13;
+export default FintechCard69;

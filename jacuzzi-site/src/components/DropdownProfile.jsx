@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Transition from '../utils/Transition';
 
 import UserAvatar from '../images/user-avatar-32.png';
 import ConnectWallet from './ConnectWallet';
+import { AddressContext } from './AddressContext';
 
 function DropdownProfile({ align }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [address, setAddress] = useState('');
-
+  const { address, setAddress } = useContext(AddressContext);
   const trigger = useRef(null);
   const dropdown = useRef(null);
 

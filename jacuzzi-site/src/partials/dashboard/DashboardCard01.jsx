@@ -41,8 +41,8 @@ function DashboardCard01() {
       // Indigo line
       {
         data: [
-          732, 610, 610, 504, 504, 504, 349, 349, 504, 342, 504, 610, 391, 192,
-          154, 273, 191, 191, 126, 263, 349, 252, 423, 622, 470, 532,
+          662, 610, 610, 504, 504, 504, 349, 349, 504, 342, 504, 610, 391, 192,
+          154, 273, 391, 391, 326, 263, 349, 352, 423, 622, 770, 820,
         ],
         fill: true,
         backgroundColor: `rgba(${hexToRGB(
@@ -56,65 +56,25 @@ function DashboardCard01() {
         pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
         clip: 20,
       },
-      // Gray line
-      {
-        data: [
-          532, 532, 532, 404, 404, 314, 314, 314, 314, 314, 234, 314, 234, 234,
-          314, 314, 314, 388, 314, 202, 202, 202, 202, 314, 720, 642,
-        ],
-        borderColor: tailwindConfig().theme.colors.slate[300],
-        borderWidth: 2,
-        tension: 0,
-        pointRadius: 0,
-        pointHoverRadius: 3,
-        pointBackgroundColor: tailwindConfig().theme.colors.slate[300],
-        clip: 20,
-      },
     ],
   };
 
   return (
-    <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
+    <div className="flex flex-col col-span-full  bg-white shadow-lg rounded-sm border border-slate-200">
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <img src={Icon} width="32" height="32" alt="Icon 01" />
-          {/* Menu button */}
-          <EditMenu align="right" className="relative inline-flex">
-            <li>
-              <Link
-                className="font-medium text-sm text-slate-600 hover:text-slate-800 flex py-1 px-3"
-                to="#0"
-              >
-                Option 1
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="font-medium text-sm text-slate-600 hover:text-slate-800 flex py-1 px-3"
-                to="#0"
-              >
-                Option 2
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="font-medium text-sm text-rose-500 hover:text-rose-600 flex py-1 px-3"
-                to="#0"
-              >
-                Remove
-              </Link>
-            </li>
-          </EditMenu>
+          {/* <img src={Icon} width="32" height="32" alt="Icon 01" /> */}
+
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 mb-2">Acme Plus</h2>
+        <h2 className="text-lg font-semibold text-slate-800 mb-2">All Portfolios</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">
-          Sales
+          Balance in USD
         </div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2">$24,780</div>
+          <div className="text-3xl font-bold text-slate-800 mr-2">$820.59</div>
           <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">
-            +49%
+            +15%
           </div>
         </div>
       </div>

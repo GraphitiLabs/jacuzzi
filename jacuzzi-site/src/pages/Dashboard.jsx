@@ -7,20 +7,59 @@ import DashboardAvatars from '../partials/dashboard/DashboardAvatars';
 import FilterButton from '../components/DropdownFilter';
 import Datepicker from '../components/Datepicker';
 import DashboardCard01 from '../partials/dashboard/DashboardCard01';
-import DashboardCard02 from '../partials/dashboard/DashboardCard02';
-import DashboardCard03 from '../partials/dashboard/DashboardCard03';
-import DashboardCard04 from '../partials/dashboard/DashboardCard04';
-import DashboardCard05 from '../partials/dashboard/DashboardCard05';
-import DashboardCard06 from '../partials/dashboard/DashboardCard06';
-import DashboardCard07 from '../partials/dashboard/DashboardCard07';
-import DashboardCard08 from '../partials/dashboard/DashboardCard08';
-import DashboardCard09 from '../partials/dashboard/DashboardCard09';
-import DashboardCard10 from '../partials/dashboard/DashboardCard10';
-import DashboardCard11 from '../partials/dashboard/DashboardCard11';
+import UsersTabs from './community/UsersTabs';
+import UsersTabsCard from '../partials/community/UsersTabsCard';
+import PaginationNumeric from '../components/PaginationNumeric';
+
+import Image01 from '../images/user-64-01.jpg';
+import Image02 from '../images/user-64-02.jpg';
+import Image03 from '../images/user-64-03.jpg';
+import Image04 from '../images/user-64-04.jpg';
+
 
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [address, setAddress] = useState('');
+
+  const items = [
+    {
+      id: 0,
+      name: 'Convservative Investor 👴',
+      image: Image01,
+      link: '#0',
+      location: '🇮🇹',
+      content:
+        'Stables and Coins',
+    },
+    {
+      id: 1,
+      name: 'Growth Mindset 🌱',
+      image: Image02,
+      link: '#0',
+      location: '🇫🇷',
+      content:
+        'L2s, Staking Tokens, DeFi Protocol Emissions ',
+    },
+    {
+      id: 2,
+      name: 'Degen HODLER 🚀',
+      image: Image03,
+      link: '#0',
+      location: '🇩🇪',
+      content:
+        '$h1tc01ns to the moon!',
+    },
+    {
+      id: 3,
+      name: 'Bitcoin Maxi ₿',
+      image: Image04,
+      link: '#0',
+      location: '🇮🇹',
+      content:
+        'wBTC, RenBTC, tBTC, sBTC, pBTC, hBTC, bBTC, etc.',
+    },
+
+  ];
 
   const handleAddressChange = newAddress => {
     setAddress(newAddress);
@@ -45,54 +84,26 @@ function Dashboard() {
             {/* Welcome banner */}
             <WelcomeBanner address={address} />
 
-            {/* Dashboard actions */}
-            <div className="sm:flex sm:justify-between sm:items-center mb-8">
-              {/* Left: Avatars */}
-              <DashboardAvatars />
-
-              {/* Right: Actions */}
-              <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-                {/* Filter button */}
-                <FilterButton align="right" />
-                {/* Datepicker built with flatpickr */}
-                <Datepicker align="right" />
-                {/* Add view button */}
-                <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                  <svg
-                    className="w-4 h-4 fill-current opacity-50 shrink-0"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                  </svg>
-                  <span className="hidden xs:block ml-2">Add View</span>
-                </button>
-              </div>
-            </div>
 
             {/* Cards */}
             <div className="grid grid-cols-12 gap-6">
               {/* Line chart (Acme Plus) */}
               <DashboardCard01 />
+              {items.map(item => {
+                return (
+                  <UsersTabsCard
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                    link={item.link}
+                    location={item.location}
+                    content={item.content}
+                  />
+                );
+              })}
+
               {/* Line chart (Acme Advanced) */}
-              <DashboardCard02 />
-              {/* Line chart (Acme Professional) */}
-              <DashboardCard03 />
-              {/* Bar chart (Direct vs Indirect) */}
-              <DashboardCard04 />
-              {/* Line chart (Real Time Value) */}
-              <DashboardCard05 />
-              {/* Doughnut chart (Top Countries) */}
-              <DashboardCard06 />
-              {/* Table (Top Channels) */}
-              <DashboardCard07 />
-              {/* Line chart (Sales Over Time) */}
-              <DashboardCard08 />
-              {/* Stacked bar chart (Sales VS Refunds) */}
-              <DashboardCard09 />
-              {/* Card (Recent Activity) */}
-              <DashboardCard10 />
-              {/* Card (Income/Expenses) */}
-              <DashboardCard11 />
             </div>
           </div>
         </main>

@@ -29,45 +29,43 @@ function TransactionsTableItem(props) {
             <span className="sr-only">Select</span>
             <input
               id={props.id}
-              className="form-checkbox"
-              type="checkbox"
+              className="form-textarea"
+              type="text"
+              placeholder="% Allocation"
               onChange={props.handleClick}
               checked={props.isChecked}
             />
           </label>
         </div>
       </td>
-      <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap md:w-1/2">
+      <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap ">
         <div className="flex items-center">
           <div className="w-9 h-9 shrink-0 mr-2 sm:mr-3">
-            <img
-              className="rounded-full"
-              src={props.image}
-              width="36"
-              height="36"
-              alt={props.name}
-            />
-          </div>
-          <div className="font-medium text-slate-800">{props.name}</div>
+            <select className='form-input pr-9 focus:border-slate-300' name="Token" id="">
+              <option value="a">USDC</option>
+              <option value="b">USDT</option>
+              <option value="c">MATIC</option>
+              <option value="d">ETH</option>
+              <option value="e">UNI</option>
+              <option value="f">SUSHI</option>
+              <option value="g">LINK</option>
+            </select>
         </div>
-      </td>
-      <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-        <div className="text-left">{props.date}</div>
-      </td>
-      <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-        <div className="text-left">
-          <div
-            className={`text-xs inline-flex font-medium rounded-full text-center px-2.5 py-1 ${statusColor(
-              props.status,
-            )}`}
-          >
-            {props.status}
-          </div>
         </div>
       </td>
       <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-        <div className={`text-right font-medium ${amountColor(props.amount)}`}>
-          {props.amount}
+        <div className="flex items-center">
+          <label className="inline-flex">
+            <span className="sr-only">Select</span>
+            <input
+              id={props.id}
+              className="form-textarea"
+              type="text"
+              placeholder="Initial Token Deposit"
+              onChange={props.handleClick}
+              checked={props.isChecked}
+            />
+          </label>
         </div>
       </td>
     </tr>
