@@ -1,6 +1,6 @@
 import '@nomiclabs/hardhat-ethers';
 import { ethers } from 'hardhat';
-import Safe, { EthersAdapter, SafeFactory, SafeAccountConfig } from '@safe-global/protocol-kit'
+import Safe, { EthersAdapter, SafeFactory, SafeAccountConfig, ConnectSafeConfig } from '@safe-global/protocol-kit'
 import dotenv from 'dotenv'
 
 
@@ -19,15 +19,17 @@ async function main() {
   const safeFactory = await SafeFactory.create({ ethAdapter })
 
   // Add the addresses that will be owners of this safe
-  const owners = ['0x7BF1F248E5E8BdD476d89D9456546C3C03862E5b', '0x048266c4609489f570D567B927CA3F137C06cD8D']
+  const owners = [process.env.PUBLIC_KEY_1, process.env.PUBLIC_KEY_2]
   const threshold = 1
   const safeAccountConfig: SafeAccountConfig = {
   owners,
   threshold
   }
-
+  console.log("Deploying multisig safe...")
   const safeSdk: Safe = await safeFactory.deploySafe({safeAccountConfig})
   const newSafeAddress = await safeSdk.getAddress()
+
+  // const ourSafeSdk = await safeSdk.connect({ ethAdapter, newSafeAddress })
 
   console.log("New Address: " + newSafeAddress)
 

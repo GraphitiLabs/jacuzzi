@@ -1,9 +1,9 @@
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
 import dotenv from 'dotenv'
+dotenv.config()
 
-// const PRIVATE_KEY = process.env.PRIVATE_KEY
-const PRIVATE_KEY = "1437e8caa95092d4f88ae8d69711ab1326e54fa7ef5eb45cefa7e70e494e59e0"
+const PRIVATE_KEY = process.env.PRIVATE_KEY?.toString()
 const INFURA_KEY = process.env.INFURA_KEY
 
 
@@ -20,7 +20,16 @@ const config: HardhatUserConfig = {
     goerli: {
       url: `https://goerli.infura.io/v3/${INFURA_KEY}`,
       accounts: [PRIVATE_KEY]
+    },
+    polygon_testnet: {
+      url: `https://polygon-mumbai.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [PRIVATE_KEY]
+    },
+    scroll_alpha_testnet: {
+      url: `https://alpha-rpc.scroll.io/l2`,
+      accounts: [PRIVATE_KEY]
     }
+
   }
 
 };
