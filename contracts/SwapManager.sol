@@ -22,7 +22,22 @@ contract SafeManager is ISwapManager {
     safe = GnosisSafe(_safeAddr);
   }
 
-  function setPoolParams
+  function setPoolParams(
+    int64[] memory _poolSplit,
+    address[] memory _poolTokens
+  ) external {
+    require(
+      msg.sender == address(safe),
+      'Only the Safe may set pool parameters'
+    );
+    require(
+      _poolSplit.length == _poolTokens.length,
+      'Pool split and pool tokens must be the same length'
+    );
+
+    poolSplit = _poolSplit;
+    poolTokens = _poolTokens;
+  }
 
   function createSwapRequest(
     SwapRequest memory _swap
