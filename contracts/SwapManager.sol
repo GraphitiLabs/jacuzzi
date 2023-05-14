@@ -14,10 +14,15 @@ contract SafeManager is ISwapManager {
   /// @dev An array is used as the data structure (over a mapping) because Searchers
   ///     need to be able to iterate over all swap requests efficently.
   SwapRequest[] public swapRequests;
+  int64[] public poolSplit;
+  address[] public poolTokens;
+  int32 decimalPlaces = 1000;
 
   constructor(address payable _safeAddr) {
     safe = GnosisSafe(_safeAddr);
   }
+
+  function setPoolParams
 
   function createSwapRequest(
     SwapRequest memory _swap
