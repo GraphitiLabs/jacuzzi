@@ -28,6 +28,10 @@ const config: HardhatUserConfig = {
     scroll_alpha_testnet: {
       url: `https://alpha-rpc.scroll.io/l2`,
       accounts: [PRIVATE_KEY]
+    },
+    gnosis_testnet: {
+      url: `https://rpc.gnosischain.com`,
+      accounts: [PRIVATE_KEY]
     }
 
   }
