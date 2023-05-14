@@ -11,7 +11,6 @@ async function main() {
   const INFURA_KEY = process.env.INFURA_KEY
   const provider = new ethers.providers.JsonRpcProvider(`https://goerli.infura.io/v3/${INFURA_KEY}`); 
   const private_key = process.env.PRIVATE_KEY
-  console.log(process.env.PRIVATE_KEY);
 
   const signerWallet = new ethers.Wallet(private_key, provider); 
 
@@ -28,6 +27,11 @@ async function main() {
   }
 
   const safeSdk: Safe = await safeFactory.deploySafe({safeAccountConfig})
+  const newSafeAddress = await safeSdk.getAddress()
+
+  console.log("New Address: " + newSafeAddress)
+
+  
 
 }
 
